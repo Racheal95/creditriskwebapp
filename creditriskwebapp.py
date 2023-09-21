@@ -40,11 +40,11 @@ def main():
 
     # getting the input data from the user
 
-    Age = st.text_input('Input your Age')
-    Income = st.text_input('What is your Income?')
-    Home = st.text_input('Home Type:3-OTHER,2-RENT,1-OWN,0-MORTGAGE')
-    Intent = st.text_input('What is the loan for?: 5- EDUCATION, 4-MEDICAL, 3-VENTURE,2-PERSONAl, 1-HOMEIMPROVEMENT, 0-DEBTCONSOLIDATION')
-    Amount = st.text_input('How much loan do you need?')
+    Age = st.number_input('Input your Age')
+    Income = st.number_input('What is your Income')
+    Home = st.number_input('Home Type: 3 = OTHER, 2 = RENT, 1 = OWN, 0 = MORTGAGE')
+    Intent = st.number_input('Loan: 5 = EDUCATION, 4 = MEDICAL, 3 = VENTURE, 2 = PERSONAl, 1 = HOMEIMPROVEMENT, 0 = DEBTCONSOLIDATION')
+    Amount = st.number_input('How much loan do you need')
 
 
     # code for Prediction
@@ -53,10 +53,9 @@ def main():
     # creating a button for Prediction
 
     if st.button('Credit Risk Result'):
-        creditrisk = credit_prediction(
-            [Age, Income, Home, Intent, Amount])
+        creditrisk = credit_prediction([Age, Income, Home, Intent, Amount])
 
     st.success(creditrisk)
 
-if '__name__' == '__main__':
+if __name__ == '__main__':
     main()
